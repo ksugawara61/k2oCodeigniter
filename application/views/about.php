@@ -16,7 +16,7 @@
     </div>
 
     <div id="pageBodySub">
-        <?= $news_list; ?>
+<?= $news_list; ?>
     </div>
 
 </div>
