@@ -60,4 +60,22 @@ class K2o_blog extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    /**
+     * おといあわせ
+     */
+    public function contact() {
+        // ヘッダーに表示する動的な要素
+        $header_data['title'] = 'おといあわせ | ';
+        $header_data['description'] = '';
+        $header_data['index_link']  = $this->index_link;
+
+        $contents_data['index_link'] = $this->index_link;
+        $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
+
+        $this->load->view('templates/header', $header_data);
+        $this->load->view('contact', $contents_data);
+        $this->load->view('templates/footer');
+
+    }
+
 }
