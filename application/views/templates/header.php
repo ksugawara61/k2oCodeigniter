@@ -2,8 +2,8 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>komorikomasha（こもりこましゃ）</title>
-<meta name="description" content="komorikomashaは、コモモ・モリコ・ひろましゃ3人のメンバーが勢いでつくったものや活動を紹介しているサイトです。">
+<title><?= $title; ?>komorikomasha（こもりこましゃ）</title>
+<meta name="description" content="<?= $description; ?>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Antic+Didone">
 <link rel="stylesheet" href="/assets/css/normalize.css">
 <link rel="stylesheet" href="/assets/css/style.css">
