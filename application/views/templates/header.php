@@ -36,3 +36,6 @@ $(document).ready(function(){
         </ul>
     </nav>
 </header>
+
+<?php if (isset($breadcrumb)) { echo $breadcrumb; } ?>
+

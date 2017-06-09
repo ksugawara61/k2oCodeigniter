@@ -3,11 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class K2o_blog extends CI_Controller {
 
-    private $index_link;
+    private $index_link;  // トップページへのリンク
 
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->helper('html');
         $this->index_link = '/'.index_page().'/'.$this->router->fetch_class();
     }
 
@@ -29,12 +30,15 @@ class K2o_blog extends CI_Controller {
      * わたしたちについて
      */
     public function about() {
+        $title     = 'わたしたちについて';
+        $hierarchy = array('ホーム' => $this->index_link, $title => null);
+
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = 'わたしたちについて | ';
+        $header_data['title'] = $title.' | ';
         $header_data['description'] = 'komorikomasyaの作品づくりのコンセプトを紹介するページです。';
         $header_data['index_link']  = $this->index_link;
+        $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
-        $contents_data['index_link'] = $this->index_link;
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
         $this->load->view('templates/header', $header_data);
@@ -46,12 +50,15 @@ class K2o_blog extends CI_Controller {
      * つくったもの
      */
     public function portfolio($page_id = '') {
+        $title     = 'つくったもの';
+        $hierarchy = array('ホーム' => $this->index_link, $title => null);
+
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = 'つくったもの | ';
+        $header_data['title'] = $title.' | ';
         $header_data['description'] = 'komorikomasha（コモモ・モリコ・ひろましゃ）が制作した作品を紹介するポートフォリオの一覧ページです。';
         $header_data['index_link']  = $this->index_link;
+        $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
-        $contents_data['index_link'] = $this->index_link;
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', null, true);
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
@@ -64,12 +71,15 @@ class K2o_blog extends CI_Controller {
      * おといあわせ
      */
     public function contact() {
+        $title     = 'おといあわせ';
+        $hierarchy = array('ホーム' => $this->index_link, $title => null);
+
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = 'おといあわせ | ';
+        $header_data['title'] = $title.' | ';
         $header_data['description'] = '';
         $header_data['index_link']  = $this->index_link;
+        $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
-        $contents_data['index_link'] = $this->index_link;
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
         $this->load->view('templates/header', $header_data);

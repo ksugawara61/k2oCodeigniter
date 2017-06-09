@@ -1,5 +1,3 @@
-<p class="topicPath"><a href="<?= $index_link; ?>">ホーム</a> &gt; つくったもの</p>
-
 <div id="pageBody">
 
     <div id="pageBodyMain">
