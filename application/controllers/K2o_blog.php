@@ -17,9 +17,10 @@ class K2o_blog extends CI_Controller {
      */
     public function index() {
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = '';
+        $header_data['title']       = '';
         $header_data['description'] = 'komorikomashaは、コモモ・モリコ・ひろましゃ3人のメンバーが勢いでつくったものや活動を紹介しているサイトです。';
         $header_data['index_link']  = $this->index_link;
+        $header_data['method']      = $this->router->fetch_method();
 
         $this->load->view('templates/header', $header_data);
         $this->load->view('index');
@@ -34,9 +35,10 @@ class K2o_blog extends CI_Controller {
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = $title.' | ';
+        $header_data['title']       = $title.' | ';
         $header_data['description'] = 'komorikomasyaの作品づくりのコンセプトを紹介するページです。';
         $header_data['index_link']  = $this->index_link;
+        $header_data['method']      = $this->router->fetch_method();
         $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
@@ -54,9 +56,10 @@ class K2o_blog extends CI_Controller {
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = $title.' | ';
+        $header_data['title']       = $title.' | ';
         $header_data['description'] = 'komorikomasha（コモモ・モリコ・ひろましゃ）が制作した作品を紹介するポートフォリオの一覧ページです。';
         $header_data['index_link']  = $this->index_link;
+        $header_data['method']      = $this->router->fetch_method();
         $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', null, true);
@@ -75,9 +78,10 @@ class K2o_blog extends CI_Controller {
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
         // ヘッダーに表示する動的な要素
-        $header_data['title'] = $title.' | ';
+        $header_data['title']       = $title.' | ';
         $header_data['description'] = '';
         $header_data['index_link']  = $this->index_link;
+        $header_data['method']      = $this->router->fetch_method();
         $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);

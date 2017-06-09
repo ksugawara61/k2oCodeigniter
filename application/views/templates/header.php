@@ -29,10 +29,10 @@ $(document).ready(function(){
     <p id="catchcopy">1人じゃできないことも、力を合わせればできる。やってみたいをカタチにする、3人の楽しいものづくり。</p>
     <nav class="globalNavi">
         <ul>
-            <li class="current"><a href="<?= $index_link; ?>">ホーム</a></li>
-            <li><a href="<?= $index_link; ?>/about">わたしたちについて</a></li>
-            <li><a href="<?= $index_link; ?>/portfolio">つくったもの</a></li>
-            <li><a href="<?= $index_link; ?>/contact">おといあわせ</a></li>
+            <li<?php if ($method === 'index') { ?> class="current"<?php } ?>><a href="<?= $index_link; ?>">ホーム</a></li>
+            <li<?php if ($method === 'about') { ?> class="current"<?php } ?>><a href="<?= $index_link; ?>/about">わたしたちについて</a></li>
+            <li<?php if ($method === 'portfolio') { ?> class="current"<?php } ?>><a href="<?= $index_link; ?>/portfolio">つくったもの</a></li>
+            <li<?php if ($method === 'contact') { ?> class="current"<?php } ?>><a href="<?= $index_link; ?>/contact">おといあわせ</a></li>
         </ul>
     </nav>
 </header>
