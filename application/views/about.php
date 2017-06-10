@@ -14,7 +14,7 @@
     </div>
 
     <div id="pageBodySub">
-<?= $news_list; ?>
+<?php echo $news_list; ?>
     </div>
 
 </div>

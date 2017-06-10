@@ -45,8 +45,8 @@
     </div>
 
     <div id="pageBodySub">
-<?= $local_navi; ?>
-<?= $news_list; ?>
+<?php echo $local_navi; ?>
+<?php echo $news_list; ?>
     </div>
 
 </div>

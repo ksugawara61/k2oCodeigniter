@@ -5,7 +5,8 @@ class K2o_blog extends CI_Controller {
 
     private $index_link;  // トップページへのリンク
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('html');
@@ -15,7 +16,8 @@ class K2o_blog extends CI_Controller {
     /**
      * トップページ
      */
-    public function index() {
+    public function index()
+    {
         // ヘッダーに表示する動的な要素
         $header_data['title']       = '';
         $header_data['description'] = 'komorikomashaは、コモモ・モリコ・ひろましゃ3人のメンバーが勢いでつくったものや活動を紹介しているサイトです。';
@@ -30,7 +32,8 @@ class K2o_blog extends CI_Controller {
     /**
      * わたしたちについて
      */
-    public function about() {
+    public function about()
+    {
         $title     = 'わたしたちについて';
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
@@ -51,7 +54,8 @@ class K2o_blog extends CI_Controller {
     /**
      * つくったもの
      */
-    public function portfolio($page_id = '') {
+    public function portfolio($page_id = '')
+    {
         $title     = 'つくったもの';
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
@@ -73,7 +77,8 @@ class K2o_blog extends CI_Controller {
     /**
      * おといあわせ
      */
-    public function contact() {
+    public function contact()
+    {
         $title     = 'おといあわせ';
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
