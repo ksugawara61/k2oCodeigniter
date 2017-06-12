@@ -1,3 +1,4 @@
+<?php if($portfolios) { ?>
 <nav class="localNavi">
     <ul>
 <?php foreach ($portfolios as $portfolio) { ?>
@@ -5,3 +6,4 @@
 <?php } ?>
     </ul>
 </nav>
+<?php } ?>
