@@ -4,43 +4,20 @@
         <section>
             <h1 class="pageTitle">つくったもの</h1>
 
+<?php foreach ($portfolios as $portfolio) { ?>
             <article class="articleList">
-                <a href="03.html">
+                <a href="<?php echo $portfolio_link.'/'.$portfolio['portfolio_id']; ?>">
                     <div class="articleListText">
-                        <h1>バッタになりたい魔法使い</h1>
-                        <p>コモモ・ひろましゃ制作のWeb仕掛け絵本<br>
-                            合い言葉は、バッタになっちゃえ！</p>
+                        <h1><?php echo $portfolio['page_title']; ?></h1>
+                        <p><?php echo $portfolio['page_abstract']; ?></p>
                     </div>
                     <div class="articleListImage">
-                        <img src="/assets/images/portfolio/index_03.jpg" width="300" height="163" alt="">
+                        <img src="/assets/images/portfolio/<?php echo $portfolio['page_thumbnail']; ?>" width="300" height="163" alt="">
                     </div>
                 </a>
             </article>
+<?php } ?>
 
-            <article class="articleList">
-                <a href="02.html">
-                    <div class="articleListText">
-                        <h1>WordPressデザインワークブック</h1>
-                        <p>コモモとひろましゃ二人の共著によるWordPressで本格的なウェブサイトを制作したい方向けの書籍</p>
-                    </div>
-                    <div class="articleListImage">
-                        <img src="/assets/images/portfolio/index_02.jpg" width="300" height="163" alt="">
-                    </div>
-                </a>
-            </article>
-
-            <article class="articleList">
-                <a href="01.html">
-                    <div class="articleListText">
-                        <h1>Cafe Debut</h1>
-                        <p>baserCMSのカフェサイト用汎用テーマ<br>
-                            テーマコンテスト2012飲食店系テーマ賞受賞</p>
-                    </div>
-                    <div class="articleListImage">
-                        <img src="/assets/images/portfolio/index_01.jpg" width="300" height="163" alt="">
-                    </div>
-                </a>
-            </article>
         </section>
     </div>
 

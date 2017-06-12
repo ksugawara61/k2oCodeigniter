@@ -56,6 +56,7 @@ class K2o_blog extends CI_Controller {
      */
     public function portfolio($page_id = '')
     {
+        $this->load->model('portfolio_model');
         $title     = 'つくったもの';
         $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
@@ -68,6 +69,8 @@ class K2o_blog extends CI_Controller {
 
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', null, true);
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
+        $contents_data['portfolio_link'] = $this->index_link.'/'.$this->router->fetch_method();
+        $contents_data['portfolios'] = $this->portfolio_model->fetchPortfolios();
 
         $this->load->view('templates/header', $header_data);
         $this->load->view('portfolio', $contents_data);
