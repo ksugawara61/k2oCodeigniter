@@ -54,7 +54,7 @@ class K2o_blog extends CI_Controller {
     /**
      * つくったもの
      */
-    public function portfolio($page_id = '')
+    public function portfolio($portfolio_id = '')
     {
         $this->load->model('portfolio_model');
         $title     = 'つくったもの';
@@ -69,7 +69,7 @@ class K2o_blog extends CI_Controller {
 
         // Bodyに表示する動的な要素
         $contents_data['portfolio_link'] = $this->index_link.'/'.$this->router->fetch_method();
-        $contents_data['portfolios'] = $this->portfolio_model->fetchPortfolios();
+        $contents_data['portfolios'] = $this->portfolio_model->fetchPortfolios($portfolio_id);
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', $contents_data, true);
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
