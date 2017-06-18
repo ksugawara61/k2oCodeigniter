@@ -74,7 +74,14 @@ class K2o_blog extends CI_Controller {
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
         $this->load->view('templates/header', $header_data);
-        $this->load->view('portfolio', $contents_data);
+        if ($portfolio_id)
+        {
+            $this->load->view('portfolio/detail', $contents_data);
+        }
+        else
+        {
+            $this->load->view('portfolio', $contents_data);
+        }
         $this->load->view('templates/footer');
     }
 
