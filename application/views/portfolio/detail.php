@@ -15,34 +15,16 @@
                 <h2 class="heading-typeA"><?php echo $portfolio['page_subtitle']; ?></h2>
 <?php echo $portfolio['page_content']; ?>
 
+<?php foreach ($sections as $section) { ?>
                 <section>
-                    <h3 class="heading-typeB">プラグインでInstagramと連携</h3>
-                    <p>プラグインでInstagramと連携して、トップページにInstagramで撮影した写真がすぐに反映されます。</p>
+                    <h3 class="heading-typeB"><?php echo $section['section_title']; ?></h3>
+                    <p><?php echo $section['section_description']; ?></p>
                     <figure>
-                        <img src="images/img_01_02.jpg" alt="撮影した料理の写真もすぐにトップページで確認できます。" width="720" height="390">
-                        <figcaption>今日のランチのローストビーフサンドを撮影♪</figcaption>
+                        <img src="/assets/images/portfolio/<?php echo $section['section_image']; ?>" alt="" width="720" height="390">
+                        <figcaption></figcaption>
                     </figure>
                 </section>
-
-                <section>
-                    <h3 class="heading-typeB">レスポンシブデザインでスマートフォン、タブレット表示も快適</h3>
-                    <p>さまざまなデバイスの表示対応に、レスポンシブデザインを採用しました。Instagramでお店のメニューを撮影してすぐにスマートフォンで確認できるのも嬉しい♪</p>
-                    <figure>
-                        <img src="images/img_01_03.jpg" alt="スマートフォン・タブレット・パソコンで表示を確認すると、それぞれレイアウトが変わります。" width="720" height="390">
-                        <figcaption>左からiPhone、iPad、MacBook Airで表示確認</figcaption>
-                    </figure>
-                </section>
-
-                <section>
-                    <h3 class="heading-typeB">Webフォントだから、飾り文字やアイコンもキレイ</h3>
-                    <p>サイトのタイトルやナビゲーション、主要な見出しはGoogle Web Font、アイコンはウェブフォント（Fontello）を採用しています。拡大縮小されるスマートフォンやタブレットでも解像度を気にすることなくキレイな文字とアイコン表示を実現できました。</p>
-                    <figure>
-                        <img src="images/img_01_04.jpg" alt="スマートフォンの画像でも文字とアイコンの表示が劣化しません。" width="720" height="390">
-                        <figcaption>iPhoneの画像に近づいても・・( ﾟдﾟ)ﾊｯ!キレイ</figcaption>
-                    </figure>
-                </section>
-
-            </section>
+<?php } ?>
 
             <footer class="articleDetailFoot">
                 <section>
