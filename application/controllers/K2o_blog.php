@@ -76,6 +76,7 @@ class K2o_blog extends CI_Controller {
         $this->load->view('templates/header', $header_data);
         if ($portfolio_id)
         {
+            $contents_data['sections'] = $this->portfolio_model->fetchPortfolioSections($portfolio_id);
             $this->load->view('portfolio/detail', $contents_data);
         }
         else
