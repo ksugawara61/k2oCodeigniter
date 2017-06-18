@@ -73,6 +73,10 @@ class K2o_blog extends CI_Controller {
         {
             // つくったもの詳細ページの処理
             $portfolio = $this->portfolio_model->fetchPortfolio($portfolio_id);
+            if (is_null($portfolio)) {
+                // IDに対応するポートフォリオがない場合404ページを表示
+                show_404();
+            }
             $hierarchy = array('ホーム'                 => $this->index_link,
                                $title                   => $this->index_link.'/portfolio',
                                $portfolio['page_title'] => null);
