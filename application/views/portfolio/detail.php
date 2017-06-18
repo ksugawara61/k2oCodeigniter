@@ -1,7 +1,5 @@
 <div id="pageBody">
 
-<?php foreach ($portfolios as $portfolio) { ?>
-
     <div id="pageBodyMain">
         <article class="articleDetail">
 
@@ -60,8 +58,6 @@
 <?php echo $local_navi; ?>
 <?php echo $news_list; ?>
     </div>
-
-<?php } ?>
 
 </div>
 

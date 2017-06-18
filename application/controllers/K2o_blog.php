@@ -69,15 +69,16 @@ class K2o_blog extends CI_Controller {
 
         // Bodyに表示する動的な要素
         $contents_data['portfolio_link'] = $this->index_link.'/'.$this->router->fetch_method();
-        $contents_data['portfolios'] = $this->portfolio_model->fetchPortfolios($portfolio_id);
+        $contents_data['portfolios'] = $this->portfolio_model->fetchAllPortfolios();
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', $contents_data, true);
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
         $this->load->view('templates/header', $header_data);
         if ($portfolio_id)
         {
-            $contents_data['sections'] = $this->portfolio_model->fetchPortfolioSections($portfolio_id);
-            $contents_data['links']    = $this->portfolio_model->fetchPortfolioLinks($portfolio_id);
+            $contents_data['portfolio'] = $this->portfolio_model->fetchPortfolio($portfolio_id);
+            $contents_data['sections']  = $this->portfolio_model->fetchPortfolioSections($portfolio_id);
+            $contents_data['links']     = $this->portfolio_model->fetchPortfolioLinks($portfolio_id);
             $this->load->view('portfolio/detail', $contents_data);
         }
         else

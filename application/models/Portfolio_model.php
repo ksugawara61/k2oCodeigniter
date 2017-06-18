@@ -11,17 +11,31 @@ class Portfolio_model extends CI_Model {
         $this->db->close();
     }
 
-    public function fetchPortfolios($portfolio_id = '')
+    /**
+     * ポートフォリオ一覧を取得する
+     *
+     * @return array ポートフォリオのリスト
+     */
+    public function fetchAllPortfolios()
     {
-        if ($portfolio_id)
-        {
-            $this->db->where('portfolio_id', $portfolio_id);
-        }
-
         $query = $this->db->get('portfolio');
         $portfolios = $query->result_array();
 
         return $portfolios;
+    }
+
+    /**
+     * ポートフォリオを取得する
+     *
+     * @param string $portfolio_id ポートフォリオID
+     * @return array IDに対応するポートフォリオ
+     */
+    public function fetchPortfolio($portfolio_id)
+    {
+        $query = $this->db->where('portfolio_id', $portfolio_id)->get('portfolio');
+        $portfolio = $query->row_array();
+
+        return $portfolio;
     }
 
     /**
