@@ -30,10 +30,9 @@
                 <section>
                     <h2 class="heading-typeC">関連リンク</h2>
                     <ul>
-                        <li><a href="https://basercms.net/themes/archives/14">Cafe Debutのダウンロードページ</a></li>
-                        <li><a href="https://cafedebut.cat-speak.net/">Cafe Debutのデモページ</a></li>
-                        <li><a href="https://basercms.net/">baser CMS公式サイト</a></li>
-                        <li><a href="https://instagram.com/">Instagram公式サイト</a></li>
+<?php foreach ($links as $link) { ?>
+                        <li><a href="<?php echo $link['link_url']; ?>"><?php echo $link['link_name']; ?></a></li>
+<?php } ?>
                     </ul>
                 </section>
 
