@@ -58,14 +58,10 @@ class K2o_blog extends CI_Controller {
     {
         $this->load->model('portfolio_model');
         $title     = 'つくったもの';
-        $hierarchy = array('ホーム' => $this->index_link, $title => null);
 
         // ヘッダーに表示する動的な要素
-        $header_data['title']       = $title.' | ';
-        $header_data['description'] = 'komorikomasha（コモモ・モリコ・ひろましゃ）が制作した作品を紹介するポートフォリオの一覧ページです。';
         $header_data['index_link']  = $this->index_link;
         $header_data['method']      = $this->router->fetch_method();
-        $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
 
         // Bodyに表示する動的な要素
         $contents_data['portfolio_link'] = $this->index_link.'/'.$this->router->fetch_method();
@@ -73,19 +69,42 @@ class K2o_blog extends CI_Controller {
         $contents_data['local_navi'] = $this->load->view('templates/local_navi', $contents_data, true);
         $contents_data['news_list']  = $this->load->view('templates/news_list', null, true);
 
-        $this->load->view('templates/header', $header_data);
         if ($portfolio_id)
         {
-            $contents_data['portfolio'] = $this->portfolio_model->fetchPortfolio($portfolio_id);
+            // つくったもの詳細ページの処理
+            $portfolio = $this->portfolio_model->fetchPortfolio($portfolio_id);
+            $hierarchy = array('ホーム'                 => $this->index_link,
+                               $title                   => $this->index_link.'/portfolio',
+                               $portfolio['page_title'] => null);
+
+            // つくったもの詳細ページのヘッダーに表示する動的な要素
+            $header_data['description'] = $portfolio['page_description'];
+            $header_data['title']       = $portfolio['page_title'].' | '.$title.' | ';
+            $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
+
+            // つくったもの詳細ページのBodyに表示する動的な要素
+            $contents_data['portfolio'] = $portfolio;
             $contents_data['sections']  = $this->portfolio_model->fetchPortfolioSections($portfolio_id);
             $contents_data['links']     = $this->portfolio_model->fetchPortfolioLinks($portfolio_id);
+
+            $this->load->view('templates/header', $header_data);
             $this->load->view('portfolio/detail', $contents_data);
+            $this->load->view('templates/footer');
         }
         else
         {
+            // つくったもの一覧ページの処理
+            $hierarchy = array('ホーム' => $this->index_link, $title => null);
+
+            // つくったもの一覧ページのヘッダーに表示する動的な要素
+            $header_data['title']       = $title.' | ';
+            $header_data['description'] = 'komorikomasha（コモモ・モリコ・ひろましゃ）が制作した作品を紹介するポートフォリオの一覧ページです。';
+            $header_data['breadcrumb']  = makeBreadcrumb($hierarchy);
+
+            $this->load->view('templates/header', $header_data);
             $this->load->view('portfolio', $contents_data);
+            $this->load->view('templates/footer');
         }
-        $this->load->view('templates/footer');
     }
 
     /**
