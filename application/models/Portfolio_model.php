@@ -18,7 +18,7 @@ class Portfolio_model extends CI_Model {
      *
      * @return array ポートフォリオのリスト
      */
-    public function fetchAllPortfolios()
+    public function fetch_all_portfolios()
     {
         $query = $this->db->get('portfolio');
         $portfolios = $query->result_array();
@@ -32,7 +32,7 @@ class Portfolio_model extends CI_Model {
      * @param string $portfolio_id ポートフォリオID
      * @return array IDに対応するポートフォリオ
      */
-    public function fetchPortfolio($portfolio_id)
+    public function fetch_portfolio($portfolio_id)
     {
         $query = $this->db->where('portfolio_id', $portfolio_id)->get('portfolio');
         $portfolio = $query->row_array();
@@ -46,7 +46,7 @@ class Portfolio_model extends CI_Model {
      * @param string $portfolio_id  ポートフォリオID
      * @return array セクションのリスト
      */
-    public function fetchPortfolioSections($portfolio_id)
+    public function fetch_portfolio_sections($portfolio_id)
     {
         // ポートフォリオIDに紐づくセクションIDを取得
         $query = $this->db->select('section_id')
@@ -74,7 +74,7 @@ class Portfolio_model extends CI_Model {
      * @param string $portfolio_id ポートフォリオID
      * @return array リンクのリスト
      */
-    public function fetchPortfolioLinks($portfolio_id)
+    public function fetch_portfolio_links($portfolio_id)
     {
         // ポートフォリオIDに紐づくリンクIDを取得
         $query = $this->db->select('link_id')
@@ -102,7 +102,7 @@ class Portfolio_model extends CI_Model {
      * @param string $portfolio_id ポートフォリオID
      * @return array リンクのリスト
      */
-    public function fetchFilmingLinks($portfolio_id)
+    public function fetch_filming_links($portfolio_id)
     {
         // ポートフォリオIDに紐づくリンクIDを取得
         $query = $this->db->select('link_id')
