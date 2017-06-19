@@ -6,6 +6,14 @@
 
 create database k2o_blog default character set utf8;
 
+drop table if exists k2o_blog.filiming_map cascade;
+
+create table k2o_blog.filming_map (
+  portfolio_id INT UNSIGNED not null comment 'ポートフォリオID'
+  , link_id INT UNSIGNED not null comment 'リンクID'
+  , constraint filiming_map_PKC primary key (portfolio_id,link_id)
+) comment '撮影場所リンクマップ' ;
+
 drop table if exists k2o_blog.link_map cascade;
 
 create table k2o_blog.link_map (
@@ -51,8 +59,18 @@ create table k2o_blog.portfolio (
   , page_thumbnail VARCHAR(255) comment 'ページサムネイル ファイル名'
   , page_subtitle VARCHAR(255) not null comment 'ページサブタイトル'
   , page_content TEXT not null comment 'ページコンテンツ'
+  , filming_title VARCHAR(255) comment '撮影場所'
+  , filming_address VARCHAR(255) comment '撮影場所住所'
+  , filming_description VARCHAR(255) comment '撮影場所説明'
+  , filming_location TEXT comment '撮影場所地図 Googleマップのiframe'
   , constraint portfolio_PKC primary key (portfolio_id)
 ) comment 'ポートフォリオ' ;
+
+alter table k2o_blog.filming_map
+  add constraint filiming_map_FK1 foreign key (link_id) references k2o_blog.link(link_id);
+
+alter table k2o_blog.filming_map
+  add constraint filiming_map_FK2 foreign key (portfolio_id) references k2o_blog.portfolio(portfolio_id);
 
 alter table k2o_blog.link_map
   add constraint link_map_FK1 foreign key (link_id) references k2o_blog.link(link_id);
