@@ -3,7 +3,7 @@ insert into k2o_blog.portfolio (page_title, page_description, page_abstract, pag
   'Cafe Debut',
   'baserCMSのカフェサイト用テーマ「Cafe Debut（カフェ・デビュー）」の紹介ページです。Cafe Debutは、Instagramと連携して撮影した写真がすぐにサイトのトップページに反映されるおしゃれでかわいいフォトログ風テーマです。',
   'baser CMS カフェサイト用テーマ<br>baser CMS テーマコンテスト2012 飲食店系テーマ賞受賞（受賞結果はこちら）',
-  'index_01.jpg',
+  'img_01_01.jpg',
   'いますぐ、はじめられるカフェサイトテーマ！',
   '<p>baserCMSは、「コーポレートサイトにちょうどいい」をキャッチコピーにしたcake PHPベースの国産CMS。Cafe Debutは、baseCMSのテーマコンテスト2012に応募するために、チームこもりこましゃで作成しました。</p>
                 <p>baserCMSのインストールと、Cafe Debutテーマの初期設定を行ったら、あとはあなたのスマートフォンのInstagramで写真を撮っていくだけ。</p>
