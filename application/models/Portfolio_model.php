@@ -94,4 +94,32 @@ class Portfolio_model extends CI_Model {
         return $links;
     }
 
+    /**
+     * 撮影場所に紐づくリンクを取得する
+     *
+     * @param string $portfolio_id ポートフォリオID
+     * @return array リンクのリスト
+     */
+    public function fetchFilmingLinks($portfolio_id)
+    {
+        // ポートフォリオIDに紐づくリンクIDを取得
+        $query = $this->db->select('link_id')
+                      ->where('portfolio_id', $portfolio_id)
+                      ->get('filming_map');
+        $tmp = $query->result_array();
+
+        // or_where_inに利用するためリンクIDを配列に変換
+        $link_ids = array();
+        foreach ($tmp as $link_id)
+        {
+            array_push($link_ids, $link_id['link_id']);
+        }
+
+        // リンクの詳細を取得
+        $query = $this->db->or_where_in('link_id', $link_ids)->get('link');
+        $links = $query->result_array();
+
+        return $links;
+    }
+
 }

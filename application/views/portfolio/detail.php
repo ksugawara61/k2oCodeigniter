@@ -41,8 +41,9 @@
                         <h2 class="heading-typeC"><?php echo $portfolio['filming_title']; ?></h2>
                         <p><?php echo $portfolio['filming_address'] ?></p>
                         <ul>
-                            <li><a href="http://www.nest-kitchen.jp">http://www.nest-kitchen.jp</a></li>
-                            <li><a href="https://www.facebook.com/KitchenNest">Facebookページ</a></li>
+<?php foreach ($filming_links as $link) { ?>
+                        <li><a href="<?php echo $link['link_url']; ?>"><?php echo $link['link_name']; ?></a></li>
+<?php } ?>
                         </ul>
                         <p><?php echo $portfolio['filming_description']; ?></p>
                     </div>

@@ -90,6 +90,9 @@ class K2o_blog extends CI_Controller {
             $contents_data['portfolio'] = $portfolio;
             $contents_data['sections']  = $this->portfolio_model->fetchPortfolioSections($portfolio_id);
             $contents_data['links']     = $this->portfolio_model->fetchPortfolioLinks($portfolio_id);
+            if ($portfolio['filming_title']) {
+                $contents_data['filming_links'] = $this->portfolio_model->fetchFilmingLinks($portfolio_id);
+            }
 
             $this->load->view('templates/header', $header_data);
             $this->load->view('portfolio/detail', $contents_data);
