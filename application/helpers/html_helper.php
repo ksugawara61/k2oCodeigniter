@@ -17,7 +17,7 @@ if (!function_exists('makeBreadcrumb'))
      * }
      * @return パンくずリストのHTML要素
      */
-    function makeBreadcrumb($hierarchy)
+    function make_breadcrumb($hierarchy)
     {
         $html_element = '<p class="topicPath">';
 
@@ -44,4 +44,3 @@ if (!function_exists('makeBreadcrumb'))
 
 }
 
-?>
