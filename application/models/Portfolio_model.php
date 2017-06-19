@@ -8,11 +8,6 @@ class Portfolio_model extends CI_Model {
         $this->load->database();
     }
 
-    public function __destruct()
-    {
-        $this->db->close();
-    }
-
     /**
      * ポートフォリオ一覧を取得する
      *
