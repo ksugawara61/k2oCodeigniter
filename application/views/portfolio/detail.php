@@ -34,21 +34,25 @@
                     </ul>
                 </section>
 
+<?php if ($portfolio['filming_title']) { ?>
                 <aside class="creditUnit">
                     <div class="creditUnitText">
                         <p>撮影協力</p>
-                        <h2 class="heading-typeC">kitchen nest</h2>
-                        <p>北海道札幌市中央区南3条西8丁目 大洋ビル2階</p>
+                        <h2 class="heading-typeC"><?php echo $portfolio['filming_title']; ?></h2>
+                        <p><?php echo $portfolio['filming_address'] ?></p>
                         <ul>
                             <li><a href="http://www.nest-kitchen.jp">http://www.nest-kitchen.jp</a></li>
                             <li><a href="https://www.facebook.com/KitchenNest">Facebookページ</a></li>
                         </ul>
-                        <p>Cafe Debutテーマのイメージ撮影にご協力いただきました。とっても素敵なお店です。</p>
+                        <p><?php echo $portfolio['filming_description']; ?></p>
                     </div>
+<?php if ($portfolio['filming_location']) { ?>
                     <div class="creditUnitMap">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.2940680937645!2d141.34411921547849!3d43.05628237914626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b29855389a3fb%3A0x3da6135facda1b0e!2z44CSMDYwLTAwNjMg5YyX5rW36YGT5pyt5bmM5biC5Lit5aSu5Yy65Y2X77yT5p2h6KW_77yY5LiB55uu77yX!5e0!3m2!1sja!2sjp!4v1496837307767" width="300" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <?php echo $portfolio['filming_location']; ?>
                     </div>
+<?php } ?>
                 </aside>
+<?php } ?>
             </footer>
 
         </article>
